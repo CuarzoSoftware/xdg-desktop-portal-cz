@@ -81,5 +81,7 @@ configure_file(
     configuration : conf,
     install_dir : get_option('prefix') / 'lib' / 'systemd' / 'user')
 
-install_data('data/cz.portal', install_dir : datadir / 'xdg-desktop-portal' / 'portals')
-install_data('data/cuarzo-portals.conf', install_dir : datadir / 'xdg-desktop-portal')
+# xdg-desktop-portal only reads these from its own data dir (not from e.g. /usr/local)
+portal_data_dir = get_option('portal_data_dir')
+install_data('data/cz.portal', install_dir : portal_data_dir / 'portals')
+install_data('data/cuarzo-portals.conf', install_dir : portal_data_dir)

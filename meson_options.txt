@@ -1,0 +1,4 @@
+option('portal_data_dir',
+       type : 'string',
+       value : '/usr/share/xdg-desktop-portal',
+       description : 'Where xdg-desktop-portal looks for .portal files and portals.conf (its own data dir, whatever the prefix)')
