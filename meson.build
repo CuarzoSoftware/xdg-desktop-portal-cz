@@ -9,6 +9,17 @@ project(
     ]
 )
 
+# -------------- SESSION --------------
+
+# Session launcher (environment, portals) and display manager entry (wayland-sessions), installed
+# even without PipeWire
+install_data('data/cuarzo-session',
+    install_dir : get_option('bindir'),
+    install_mode : 'rwxr-xr-x')
+
+install_data('data/cuarzo.desktop',
+    install_dir : get_option('datadir') / 'wayland-sessions')
+
 # Screen casting needs PipeWire: without it (e.g. no pipewire-devel) the portal isn't built
 pipewire_dep = dependency('libpipewire-0.3', version : '>= 0.3.62', required : false)
 
